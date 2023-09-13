@@ -7,13 +7,18 @@ const enpoint = 'http://127.0.0.1:8000/api/projects/';
 
 export default {
   components: { AppHeader, AppMain },
-  data: () => ({ projects: [] }),
+  data: () => ({
+    projects: [],
+    isLoading: false
+  }),
   methods: {
     fetchProjects() {
-
+      this.isLoading = true;
       axios.get(enpoint).then(res => {
         this.projects = res.data
       })
+        .catch()
+        .then(() => { this.isLoading = false })
     }
   },
   created() {
@@ -24,7 +29,9 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain :projects="projects" />
+
+  <AppLoader v-if="isLoading" />
+  <AppMain v-else :projects="projects" />
 </template>
 
 <style scoped></style>
