@@ -1,15 +1,19 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import axios from 'axios';
+import AppMain from './components/AppMain.vue';
 
 const enpoint = 'http://127.0.0.1:8000/api/projects/';
 
 export default {
-  components: { AppHeader },
+  components: { AppHeader, AppMain },
   data: () => ({ projects: [] }),
   methods: {
     fetchProjects() {
-      axios.get(enpoint).then(res => { console.log(res.data) })
+
+      axios.get(enpoint).then(res => {
+        this.projects = res.data
+      })
     }
   },
   created() {
@@ -20,9 +24,7 @@ export default {
 
 <template>
   <AppHeader />
-  <main class="container my-3">
-
-  </main>
+  <AppMain :projects="projects" />
 </template>
 
 <style scoped></style>
