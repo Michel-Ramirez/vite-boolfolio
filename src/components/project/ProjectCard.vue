@@ -13,7 +13,7 @@ export default {
             {{ project.description }}
         </div>
         <div class="card-footer d-flex justify-content-between">
-            <div>{{ project.type }}</div>
+            <!-- <div v-for="project.type in type">{{ type }}</div> -->
             <button class="btn btn-sm btn-primary">Vedi</button>
         </div>
     </div>
