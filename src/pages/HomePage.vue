@@ -1,11 +1,11 @@
 <script>
 import axios from 'axios';
-import AppMain from '../components/AppMain.vue';
+import AppProjectsList from '../components/project/AppProjectsList.vue';
 
 const enpoint = 'http://127.0.0.1:8000/api/projects/';
 
 export default {
-    components: { AppMain },
+    components: { AppProjectsList },
     data: () => ({
         projects: [],
         isLoading: false,
@@ -32,7 +32,9 @@ export default {
 
 <template>
     <AppLoader v-if="isLoading" />
-    <AppMain v-else :projects="projects" />
+    <div v-else>
+        <AppProjectsList :projects="projects" />
+    </div>
 </template>
 
 <style scoped></style>
