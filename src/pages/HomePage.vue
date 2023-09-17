@@ -15,7 +15,8 @@ export default {
         fetchProjects() {
             this.isLoading = true;
             axios.get(enpoint).then(res => {
-                this.projects = res.data
+                this.projects = res.data;
+                console.log(this.projects.length)
             })
                 .catch(err => {
                     console.log(err);
@@ -33,7 +34,7 @@ export default {
 <template>
     <AppLoader v-if="isLoading" />
     <div v-else>
-        <AppProjectsList :projects="projects" />
+        <AppProjectsList :projects="projects" :projectLength="projects.length" />
     </div>
 </template>
 

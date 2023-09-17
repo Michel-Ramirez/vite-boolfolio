@@ -19,7 +19,7 @@ export default {
                             <RouterLink class="nav-link" aria-current="page" :to="{ name: 'home' }">Home</RouterLink>
                         </li>
                         <li>
-                            <!-- <RouterLink class="nav-link" aria-current="page" to="/">Progetti</RouterLink> -->
+                            <RouterLink class="nav-link" aria-current="page" :to="{ name: 'contact' }">Contattami</RouterLink>
                         </li>
                     </ul>
                 </div>

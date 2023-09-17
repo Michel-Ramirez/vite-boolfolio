@@ -22,7 +22,8 @@ export default {
                 .then(res => {
                     this.project = res.data;
                 })
-                .catch(err => console.error(err))
+                // se sono in errore, pusho un oggetto rindirizzandolo alla rotta not-found
+                .catch(err => { this.$router.push({ name: 'not-found' }) })
                 .then(() => { this.isLoading = false });
         }
     },
