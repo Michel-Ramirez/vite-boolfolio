@@ -5,12 +5,14 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import ProjectDetailPage from "../pages/ProjectDetailPage.vue";
 import NotFoundPage from "../pages/NotFoundPage.vue";
+import ContactPage from "../pages/ContactPage.vue";
 //Creiamo il router
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", name: "home", component: HomePage },
+    { path: "/projects/contact", name: "contact", component: ContactPage },
     {
       path: "/projects/:id",
       name: "project-detail",
