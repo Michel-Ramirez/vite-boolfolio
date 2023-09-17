@@ -1,6 +1,16 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
-    props: { project: Object }
+    props: { project: Object, isDetail: Boolean },
+    components: { RouterLink },
+    computed: {
+        projectDescription() {
+            if (this.isDetail) return this.project.description;
+            const abstract = this.project.description.slice(0, 100);
+            return abstract + '...';
+        }
+    }
 }
 </script>
 
@@ -10,11 +20,13 @@ export default {
             <h3>{{ project.title }}</h3>
         </div>
         <div class="card-body">
-            {{ project.description }}
+            <!-- uso un ternatio -> è' il dettaglio del post? mostra l'intera description altrimenti mostra l'abstract -->
+            <p>{{ projectDescription }}</p>
         </div>
-        <div class="card-footer d-flex justify-content-between">
-            <!-- <div v-for="project.type in type">{{ type }}</div> -->
-            <button class="btn btn-sm btn-primary">Vedi</button>
+        <div class="card-footer d-flex justify-content-end">
+            <!-- nella rotta (:to) passo sia il name della rotta che il parametro per costruire l'url, key: value -->
+            <RouterLink class="btn btn-sm btn-primary" :to="{ name: 'project-detail', params: { id: project.id } }">Vedi
+            </RouterLink>
         </div>
     </div>
 </template>
