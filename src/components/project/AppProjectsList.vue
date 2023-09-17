@@ -2,13 +2,15 @@
 import ProjectCard from './ProjectCard.vue';
 
 export default {
-    props: { projects: Array },
+    props: {
+        projects: Array, projectLength: Array
+    },
     components: { ProjectCard }
 }
 </script>
 
 <template>
-    <h1 class="text-center">Ecco gli ultimi 10 post</h1>
+    <h1 class="text-center my-5">Ecco gli ultimi {{ projectLength }} post</h1>
     <div v-if="projects.length">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
     </div>
