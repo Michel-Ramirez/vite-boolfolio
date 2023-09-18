@@ -13,15 +13,19 @@ export default {
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="collapse navbar-collapse d-flex justify-content-between " id="navbarNavAltMarkup">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <RouterLink class="nav-link" aria-current="page" :to="{ name: 'home' }">Home</RouterLink>
                         </li>
-                        <li>
-                            <RouterLink class="nav-link" aria-current="page" :to="{ name: 'contact' }">Contattami</RouterLink>
+                        <li class="nav-item">
+                            <RouterLink class="nav-link" aria-current="page" :to="{ name: 'contact' }">Contattami
+                            </RouterLink>
                         </li>
                     </ul>
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
+                    </div>
                 </div>
             </div>
         </nav>
